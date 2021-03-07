@@ -25,13 +25,13 @@ def get_docx_files():
 def loop_through_docx():
     for f in get_docx_files():
         comm_string = comments_with_reference_paragraph(f)
-    write_lines_to_file(comm_string)
+        write_lines_to_file(comm_string)
 
 #write comments to CSV.  Include FileName, Comment, CommentReferenceText
 def write_lines_to_file(lines):
     global dir_root
     out_dir = dir_root + "\\filecomments.txt"
-    with open(out_dir, 'w') as fo:
+    with open(out_dir, 'a+') as fo:
         for line in lines:
             fo.write('%s\n' % line)
 
